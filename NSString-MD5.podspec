@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.description = 'HSUWebCache is an Addition for NSString, get md5 string.'
   s.source_files = '*.{h,m}'
   s.framework    = ['Foundation', 'UIKit']
-  s.requires_arc = true
+  s.requires_arc = false 
 end
