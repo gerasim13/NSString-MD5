@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'NSString-MD5'
+  s.name     = 'NSString+MD5'
   s.version  = '1.0'
   s.platform = :ios, '5.1'
   s.license  = 'MIT'
