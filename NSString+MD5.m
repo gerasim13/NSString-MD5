@@ -11,10 +11,11 @@
 
 @implementation NSString (MD5)
 
-+ (NSString *) stringWithMD5OfFile: (NSString *) path {
-
++ (NSString*)stringWithMD5OfFile:(NSString*)path
+{
 	NSFileHandle *handle = [NSFileHandle fileHandleForReadingAtPath: path];
-	if (handle == nil) {
+	if (handle == nil)
+    {
 		return nil;
 	}
 	
@@ -23,20 +24,16 @@
 	
 	BOOL done = NO;
 	
-	while (!done) {
-	
-		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-		NSData *fileData = [[NSData alloc] initWithData: [handle readDataOfLength: 4096]];
-		CC_MD5_Update (&md5, [fileData bytes], [fileData length]);
-		
-		if ([fileData length] == 0) {
-			done = YES;
-		}
-		
-		[fileData release];
-		[pool release];
-		
-	}
+    while (!done)
+    {
+        NSData *fileData = [[NSData alloc] initWithData: [handle readDataOfLength: 4096]];
+        CC_MD5_Update (&md5, [fileData bytes], [fileData length]);
+        
+        if ([fileData length] == 0)
+        {
+            done = YES;
+        }
+    }
 	
 	unsigned char digest[CC_MD5_DIGEST_LENGTH];
 	CC_MD5_Final (digest, &md5);
@@ -54,8 +51,8 @@
 	
 }
 
-- (NSString *) MD5Hash {
-	
+- (NSString*)MD5Hash
+{
 	CC_MD5_CTX md5;
 	CC_MD5_Init (&md5);
 	CC_MD5_Update (&md5, [self UTF8String], [self length]);
@@ -72,8 +69,7 @@
 				   digest[12], digest[13],
 				   digest[14], digest[15]];
 				   
-	return s;
-	
+    return s;
 }
 
 @end

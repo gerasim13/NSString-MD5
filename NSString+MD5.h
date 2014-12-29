@@ -13,9 +13,9 @@
 @interface NSString (MD5)
 
 // MD5 hash of the file on the filesystem specified by path
-+ (NSString *) stringWithMD5OfFile: (NSString *) path;
++ (NSString*)stringWithMD5OfFile:(NSString*)path;
 // The string's MD5 hash
-- (NSString *) MD5Hash;
+- (NSString*)MD5Hash;
 
 @end
 
